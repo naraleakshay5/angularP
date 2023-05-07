@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit {
     this.getDumpData();
   }
 
+  //get api implemention
   getDumpData() {
     this.DumpService.allGet().subscribe((res: any) => {
       this.data = res;
