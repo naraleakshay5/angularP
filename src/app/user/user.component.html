@@ -1,0 +1,58 @@
+<div class="container">
+  <div *ngIf="tableData">
+    <select
+      formControlName="website"
+      class="form-control"
+      #web
+      (change)="Category(web.value)"
+    >
+      <option disabled>Select Category</option>
+      <option>Choose Website</option>
+      <option *ngFor="let web of data">{{ web }}</option>
+    </select>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Product Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Product Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of category?.products">
+          <th scope="row">{{ item.id }}</th>
+          <td #item (click)="details(item.id)" style="cursor: pointer">
+            {{ item.brand }}
+          </td>
+          <td>{{ item.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="displayAllDetails">
+    <div class="container-flud">
+      <label> ID: {{ categoryDetails?.id }}</label
+      ><br />
+      <label> Brand: {{ categoryDetails?.brand }}</label
+      ><br />
+      <label> Category: {{ categoryDetails?.category }}</label
+      ><br />
+      <label> Description: {{ categoryDetails?.description }}</label
+      ><br />
+      <label>
+        DiscountPercentage: {{ categoryDetails?.discountPercentage }}</label
+      ><br />
+      <label> Price: {{ categoryDetails?.price }}</label
+      ><br />
+      <label> Rating: {{ categoryDetails?.rating }}</label
+      ><br />
+      <label> Title: {{ categoryDetails?.title }}</label
+      ><br />
+      <img id="myimage" [src]="categoryDetails?.thumbnail" />
+      <br />
+      <button class="btn btn-primary mt-2" (click)="hideDetails()">Hide</button>
+    </div>
+  </div>
+</div>

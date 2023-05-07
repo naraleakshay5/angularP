@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <label> Total:{{ data.total }}</label>
+      <label> Limit:{{ data.limit }}</label>
+      <label> Skip:{{ data.skip }}</label>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data.posts">
+        <th scope="row">{{ item.id }}</th>
+        <td>
+          {{ item.title }}
+        </td>
+        <td>{{ item.body }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
