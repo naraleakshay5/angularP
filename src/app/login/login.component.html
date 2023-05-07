@@ -7,3 +7,8 @@
   <br />
   <button type="submit">Log In</button>
 </form>
+
+<!-- child to parent data send -->
+
+<input type="text" #box />
+<button (click)="updateDataEvent.emit(box.value)">Update Value</button>

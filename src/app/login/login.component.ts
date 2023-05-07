@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from './auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,6 +10,7 @@ export class LoginComponent implements OnInit {
   username: any;
   password: any;
   constructor(private auth: AuthService) {}
+  @Output() updateDataEvent = new EventEmitter<string>();
 
   ngOnInit(): void {}
   onSubmit(): void {

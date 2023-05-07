@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DumpService } from './dump.service';
 import { log } from 'console';
 @Component({
@@ -9,6 +9,7 @@ import { log } from 'console';
 export class DetailsComponent implements OnInit {
   data: any;
   constructor(private DumpService: DumpService) {}
+  @Input() datas = 0;
 
   ngOnInit(): void {
     this.getDumpData();
